@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -86,10 +88,19 @@ public class DetailNeighbourFragment extends Fragment {
 
 
 
-
            Favorite.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
                    DI.getNeighbourApiService().changeFavoriteNeighbour(neighbour.getId());
+
+                   neighbour.setFavorite(! neighbour.getIsFavorite());
+
+                   if (neighbour.getIsFavorite()) {
+                       Favorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_yellow_24dp));
+                   } else {
+                       Favorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_white));
+                   }
+
+
                }
            });
 

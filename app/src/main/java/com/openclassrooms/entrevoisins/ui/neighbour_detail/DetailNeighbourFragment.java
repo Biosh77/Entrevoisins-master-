@@ -88,6 +88,12 @@ public class DetailNeighbourFragment extends Fragment {
 
 
 
+           if (neighbour.getIsFavorite()) {
+               Favorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_yellow_24dp));
+           } else {
+               Favorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_white));
+           }
+
            Favorite.setOnClickListener(new View.OnClickListener() {
                public void onClick(View v) {
                    DI.getNeighbourApiService().changeFavoriteNeighbour(neighbour.getId());
@@ -110,7 +116,7 @@ public class DetailNeighbourFragment extends Fragment {
                    .placeholder(R.mipmap.ic_launcher_round)
                    .error(R.mipmap.ic_launcher_round);
            Glide.with(this).load(neighbour.getAvatarUrl()).apply(options).into(Avatar);
-// comm
+
 
        }
     }

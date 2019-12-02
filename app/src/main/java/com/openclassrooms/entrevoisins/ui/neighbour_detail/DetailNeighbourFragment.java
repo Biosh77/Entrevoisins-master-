@@ -110,7 +110,7 @@ public class DetailNeighbourFragment extends Fragment {
                    .placeholder(R.mipmap.ic_launcher_round)
                    .error(R.mipmap.ic_launcher_round);
            Glide.with(this).load(neighbour.getAvatarUrl()).apply(options).into(Avatar);
-
+// comm
 
        }
     }
